@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 // this is called mounting. when ever a req comes in for
 // '/lion' we want to use this router
 app.use('/lions', lionRouter);
+app.use('/tigers', tigerRouter)
 
 app.use(function(err, req, res, next) {
   if (err) {
@@ -24,5 +25,5 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen(3000);
-console.log('on port 3000');
+app.listen(4000);
+console.log('on port 4000');
