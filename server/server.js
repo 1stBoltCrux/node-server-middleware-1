@@ -20,7 +20,8 @@ app.use('/tigers', tigerRouter)
 
 app.use(function(err, req, res, next) {
   if (err) {
-    res.status(500).send(error);
+    console.log(err.message);
+    res.status(500).send(err);
   }
 });
 
