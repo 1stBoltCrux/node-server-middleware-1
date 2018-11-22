@@ -15,7 +15,7 @@
     "morgan": "^1.6.1"
   },
   "devDependencies": {
-    "chai": "^3.2.0",
-    "supertest": "^1.0.1"
+    "chai": "^3.5.0",
+    "supertest": "^1.2.0"
   }
 }

@@ -19,6 +19,47 @@ describe('[LIONS]', function(){
         done();
       })
   });
+
+
+it('should create a lion', function(done) {
+  request(app)
+  .post('/lions')
+  .send({
+    name: 'Mufasa',
+    age: 69,
+    pride: 'Good Lions',
+    gender: 'male',
+  })
+  .set('Accept', 'application/json')
+  .expect('Content-Type', /json/)
+  .expect(201)
+  .end(function(err, resp) {
+    expect(resp.body).to.be.an('object')
+    expect(resp.body.name).to.equal('Mufasa')
+    done();
+  })
 });
 
+  it('should delete a lion', function(done) {
+    request(app)
+    .post('/lions')
+    .send({
+      id: "1",
+      name: 'Mufasa',
+      age: 69,
+      pride: 'Good Lions',
+      gender: 'male',
+    })
+    .set('Accept', 'application/json')
+    .end(function(err, resp) {
+      var lion = resp.body;
+      request(app)
+      .delete('/lions/' + lion.id )
+      .end(function(err, resp) {
+        expect(resp.body).to.eql(lion);
+        done();
+      })
+    })
+  })
 
+});
